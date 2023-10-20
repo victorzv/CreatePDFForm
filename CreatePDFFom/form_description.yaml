@@ -1,0 +1,29 @@
+- type: fieldText
+  name: fio
+  label: Введите ФИО
+  font: TimesNewRoman
+  fontSize: 16
+- type: fieldFlag
+  name: state
+  label: Вы замужем/женаты
+  font: Arial
+  fontSize: 12
+- type: fieldSimpleText
+  name: simple
+  label: \n
+  font: Arial
+  fontSize: 12
+- type: fieldDropDown
+  name: MaleFemale
+  label: gender 
+  font: Arial
+  fontSize: 12
+  options:
+    - Male
+    - Female
+- type: fieldSignature
+  name: signature
+  label: Заголовок подписи
+  font: Arial
+  fontSize: 12
+  
