@@ -1,13 +1,14 @@
-- Type: "fieldText"
-  Name: "fio"
-  Label: "Введите ФИО"
-  Font: "TimesNewRoman"
+- Type: fieldText
+  Name: fio
+  Label: Введите ФИО
+  Font: TimesNewRoman
   FontSize: 16
-- Type: fieldFlag
+- Type: fieldCheckBox
   Name: state
   Label: Вы замужем/женаты
   Font: Arial
   FontSize: 12
+  State: true
 - Type: fieldSimpleText
   Name: simple
   Label: \n
@@ -15,7 +16,7 @@
   FontSize: 12
 - Type: fieldDropDown
   Name: MaleFemale
-  Label: gender 
+  Label: gender
   Font: Arial
   FontSize: 12
   options:

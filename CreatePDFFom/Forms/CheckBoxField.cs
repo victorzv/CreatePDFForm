@@ -6,4 +6,6 @@ public class CheckBoxField : FormField
     {
         Type = "fieldCheckBox";
     }
+    
+    public bool State { get; set; }
 }
