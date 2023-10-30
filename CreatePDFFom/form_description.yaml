@@ -3,23 +3,8 @@
   Label: Введите ФИО
   Font: TimesNewRoman
   FontSize: 16
-- Type: fieldCheckBox
-  Name: state
-  Label: Вы замужем/женаты
-  Font: Arial
-  FontSize: 12
-  State: true
-- Type: fieldSimpleText
-  Name: simple
-  Label: \n
-  Font: Arial
-  FontSize: 12
-- Type: fieldDropDown
-  Name: MaleFemale
-  Label: gender
-  Font: Arial
-  FontSize: 12
-  options:
-    - Male
-    - Female
-  
+- Type: fieldText
+  Name: year
+  Label: Год рождения
+  Font: TimesNewRoman
+  FontSize: 16
