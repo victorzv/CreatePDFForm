@@ -20,7 +20,7 @@ public class Worker : BackgroundService
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-            //_logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+            _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
             string yamlContent = File.ReadAllText("./form_description.yaml");
             IFormFieldReader reader = new YamlFormFieldReader(yamlContent);
             var list = reader.ReadFormFields();
@@ -29,16 +29,15 @@ public class Worker : BackgroundService
 
             Page page = pdf.Pages.Add();
 
-            int yPos = 500;
+            int yPos = 800;
             
             foreach (var el in list)
             {
                 if (el.Type == "fieldText")
                 {
                     TextBoxField textBoxField = new TextBoxField(page, new Aspose.Pdf.Rectangle(100, yPos, 300, yPos+40));
-                    textBoxField.PartialName = "textbox" + yPos/100;
+                    textBoxField.PartialName = "textbox" + yPos/50;
                     textBoxField.Value = el.Name;
-                    
 
                     Border border = new Border(textBoxField);
                     border.Width = 5;
@@ -49,14 +48,17 @@ public class Worker : BackgroundService
                     
                     pdf.Form.Add(textBoxField, 1);                    
                 }
-                yPos -= 100;
+                else if (el.Type == "Text")
+                {
+                    TextFragment textFragment = new TextFragment(el.Label);
+                    textFragment.Position = new Position(100, yPos);
+                    page.Paragraphs.Add(textFragment);
+                }
+                yPos -= 50;
             }
             
-            TextFragment textFragment = new TextFragment("Enter here name");
-            textFragment.Position = new Position(100, yPos - 50);
-            page.Paragraphs.Add(textFragment);
             
-            pdf.Save("письмо.pdf");
+            pdf.Save("Letter.pdf");
 
             break;
         }

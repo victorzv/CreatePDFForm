@@ -17,8 +17,6 @@ public class FormElementFromDictionary
                     Type = fieldType,
                     Name = item["Name"].ToString(),
                     Label = item["Label"].ToString(),
-                    Font = item["Font"].ToString(),
-                    FontSize = Convert.ToInt32(item["FontSize"]),
                     State = Convert.ToBoolean(item["State"])
                 };
             case "fieldDropDown":
@@ -27,8 +25,6 @@ public class FormElementFromDictionary
                     Type = fieldType,
                     Name = item["Name"].ToString(),
                     Label = item["Label"].ToString(),
-                    Font = item["Font"].ToString(),
-                    FontSize = Convert.ToInt32(item["FontSize"]),
                     Options = ((List<object>)item["options"]).ConvertAll(option => option.ToString())
                 };
             case "fieldText":
@@ -37,17 +33,13 @@ public class FormElementFromDictionary
                     Type = fieldType,
                     Name = item["Name"].ToString(),
                     Label = item["Label"].ToString(),
-                    Font = item["Font"].ToString(),
-                    FontSize = Convert.ToInt32(item["FontSize"]),
                 };
-            case "fieldSimpleText":
+            case "Text":
                 return new SimpleTextField
                 {
                     Type = fieldType,
                     Name = item["Name"].ToString(),
                     Label = item["Label"].ToString(),
-                    Font = item["Font"].ToString(),
-                    FontSize = Convert.ToInt32(item["FontSize"])
                 };
             // Другие типы полей можно обработать аналогичным образом
             default:

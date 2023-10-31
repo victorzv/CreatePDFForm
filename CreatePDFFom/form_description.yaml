@@ -1,10 +1,9 @@
+- Type: Text
+  Name: Text
+  Label: This is text
 - Type: fieldText
   Name: fio
   Label: Введите ФИО
-  Font: TimesNewRoman
-  FontSize: 16
 - Type: fieldText
   Name: year
   Label: Год рождения
-  Font: TimesNewRoman
-  FontSize: 16

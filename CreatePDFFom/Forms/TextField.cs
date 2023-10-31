@@ -12,7 +12,5 @@ public class TextField : FormField
     {
         Console.WriteLine($"Text field: {Label}");
         Console.WriteLine($"Name: {Name}");
-        Console.WriteLine($"Font: {Font}");
-        Console.WriteLine($"Font size: {FontSize}");
     }
 }
