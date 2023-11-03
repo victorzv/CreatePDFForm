@@ -1,4 +1,5 @@
 
+using System.Net.Mime;
 using Aspose.Pdf;
 using Aspose.Pdf.Annotations;
 using Aspose.Pdf.Forms;
@@ -21,42 +22,58 @@ public class Worker : BackgroundService
         while (!stoppingToken.IsCancellationRequested)
         {
             _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+            
+            new License().SetLicense("/home/tigra/test.lic");
+            
             string yamlContent = File.ReadAllText("./form_description.yaml");
             IFormFieldReader reader = new YamlFormFieldReader(yamlContent);
-            var list = reader.ReadFormFields();
+            var form = reader.ReadFormFields();
 
             Document pdf = new Aspose.Pdf.Document();
 
             Page page = pdf.Pages.Add();
 
             int yPos = 800;
-            
-            foreach (var el in list)
+            double xPos = 50;
+            foreach (var item in form.Items)
             {
-                if (el.Type == "fieldText")
+                if (item.NewString != null)
                 {
-                    TextBoxField textBoxField = new TextBoxField(page, new Aspose.Pdf.Rectangle(100, yPos, 300, yPos+40));
-                    textBoxField.PartialName = "textbox" + yPos/50;
-                    textBoxField.Value = el.Name;
-
-                    Border border = new Border(textBoxField);
-                    border.Width = 5;
-                    border.Style = BorderStyle.Solid;
-                    textBoxField.Border = border;
-
-                    textBoxField.Color = Aspose.Pdf.Color.Black;
-                    
-                    pdf.Form.Add(textBoxField, 1);                    
+                    yPos -= 50;
+                    xPos = 50;
                 }
-                else if (el.Type == "Text")
+                else if (item.Text != null)
                 {
-                    TextFragment textFragment = new TextFragment(el.Label);
-                    textFragment.Position = new Position(100, yPos);
+                    TextFragment textFragment = new TextFragment(item.Text);
+                    textFragment.Position = new Position(xPos, yPos);
                     page.Paragraphs.Add(textFragment);
+                    xPos += 150;
                 }
-                yPos -= 50;
+                else if (item.FieldSelect != null)
+                {
+                    ComboBoxField combo = new ComboBoxField(page, new Rectangle(xPos, yPos, xPos + 150, yPos + 50));
+                    
+                    if (item.Options != null)
+                    {
+                        foreach (var el in item.Options)
+                        {
+                            combo.AddOption(el);    
+                        }
+
+                        xPos += 150;
+                    }
+
+                    pdf.Form.Add(combo);
+                }
+                else if (item.FieldText != null)
+                {
+                    TextBoxField textBoxField = new TextBoxField(page, new Aspose.Pdf.Rectangle(xPos, yPos, xPos + 150, yPos + 30));
+                    textBoxField.PartialName = "textbox" + yPos;
+                    textBoxField.Value = item.Label;
+                    pdf.Form.Add(textBoxField);
+                    xPos += 150;
+                }
             }
-            
             
             pdf.Save("Letter.pdf");
 
