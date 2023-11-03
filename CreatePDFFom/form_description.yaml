@@ -1,9 +1,11 @@
-- Type: Text
-  Name: Text
-  Label: This is text
-- Type: fieldText
-  Name: fio
-  Label: Введите ФИО
-- Type: fieldText
-  Name: year
-  Label: Год рождения
+Items:
+  - text: This is text
+  - input: fio
+    Label: Введите ФИО
+  - select: year
+    Label: Год рождения
+    Options:
+      - 2001
+      - 2002
+  - rn: return
+  - text: Thanks for form

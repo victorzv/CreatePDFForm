@@ -1,6 +1,5 @@
 using System.Text.RegularExpressions;
 using CreatePDFFom;
-using WorkerService1.Forms;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -13,24 +12,17 @@ public class YamlFormFieldReader : IFormFieldReader
     public YamlFormFieldReader(string content)
     {
         yamlContent = content;
-        //Console.WriteLine(yamlContent);
     }
 
-    public List<FormField> ReadFormFields()
+    public Form ReadFormFields()
     {
-        var listOfBlock = new List<FormField>();
+        var listOfBlock = new List<FormItem>();
         
         var deserializer = new DeserializerBuilder().Build();
         
-        var list = deserializer.Deserialize<List<Dictionary<string, object>>>(yamlContent);
-
-        foreach (var item in list)
-        {
-            FormField formField = FormElementFromDictionary.CreateFormField(item);
-            listOfBlock.Add(formField);
-        }
+        var form = deserializer.Deserialize<Form>(yamlContent);
         
-        return listOfBlock;
+        return form;
     }
     
 }
