@@ -5,6 +5,7 @@ using Aspose.Pdf.Annotations;
 using Aspose.Pdf.Forms;
 using Aspose.Pdf.Text;
 using WorkerService1;
+using Color = System.Drawing.Color;
 
 namespace CreatePDFFom;
 
@@ -47,12 +48,16 @@ public class Worker : BackgroundService
                     TextFragment textFragment = new TextFragment(item.Text);
                     textFragment.Position = new Position(xPos, yPos);
                     page.Paragraphs.Add(textFragment);
-                    xPos += 150;
+                    textFragment.TextState.FontSize = 14;
+                    textFragment.TextState.FontStyle = FontStyles.Bold;
+                    textFragment.TextState.FontStyle = FontStyles.Italic;
+                    xPos += textFragment.Rectangle.Width + 5;
                 }
                 else if (item.FieldSelect != null)
                 {
-                    ComboBoxField combo = new ComboBoxField(page, new Rectangle(xPos, yPos, xPos + 150, yPos + 50));
-                    
+                    ComboBoxField combo = new ComboBoxField(page, new Rectangle(xPos, yPos, xPos + 150, yPos + 30));
+                    combo.Value = item.Label;
+                    combo.DefaultAppearance = new DefaultAppearance("Arial", 14, Color.Black);
                     if (item.Options != null)
                     {
                         foreach (var el in item.Options)
@@ -70,6 +75,7 @@ public class Worker : BackgroundService
                     TextBoxField textBoxField = new TextBoxField(page, new Aspose.Pdf.Rectangle(xPos, yPos, xPos + 150, yPos + 30));
                     textBoxField.PartialName = "textbox" + yPos;
                     textBoxField.Value = item.Label;
+                    textBoxField.DefaultAppearance = new DefaultAppearance("Arial", 14, Color.Black);
                     pdf.Form.Add(textBoxField);
                     xPos += 150;
                 }
