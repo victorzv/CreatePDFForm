@@ -4,8 +4,8 @@ namespace WorkerService1;
 
 public class FormItem
 {
-    [YamlMember(Alias = "rn")]
-    public string NewString { get; set; }
+    [YamlMember(Alias = "newline")]
+    public string newline { get; set; }
 
     [YamlMember(Alias = "text")]
     public string Text { get; set; }

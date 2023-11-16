@@ -38,7 +38,7 @@ public class Worker : BackgroundService
             double xPos = 50;
             foreach (var item in form.Items)
             {
-                if (item.NewString != null)
+                if (item.newline != null)
                 {
                     yPos -= 50;
                     xPos = 50;

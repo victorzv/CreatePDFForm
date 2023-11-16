@@ -7,5 +7,5 @@ Items:
     Options:
       - 2001
       - 2002
-  - rn: return
+  - newline: return
   - text: Thanks for form
