@@ -9,3 +9,8 @@ Items:
       - 2002
   - newline: return
   - text: Thanks for form
+  - newline: return
+  - radio: gender
+    Options:
+      - male
+      - female

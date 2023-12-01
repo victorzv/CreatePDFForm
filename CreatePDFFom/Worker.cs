@@ -79,6 +79,26 @@ public class Worker : BackgroundService
                     pdf.Form.Add(textBoxField);
                     xPos += 150;
                 }
+                else if (item.FieldRadio != null)
+                {
+                    RadioButtonField radio = new RadioButtonField(page);
+                    pdf.Form.Add(radio, 1);
+                    if (item.Options != null)
+                    {
+                        foreach (var el in item.Options)
+                        {
+                            radio.AddOption(el, new Rectangle(xPos, yPos, xPos + 150, yPos -= 30));
+                            /*
+                            RadioButtonOptionField opt = new RadioButtonOptionField();
+                            opt.OptionName = el;
+                            opt.Width = 100;
+                            opt.Height = 30;
+                            opt.Caption = new TextFragment(el);
+                            radio.Add(opt);*/
+                        }
+                        xPos += 150;
+                    }
+                }
             }
             
             pdf.Save("Letter.pdf");
