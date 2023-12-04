@@ -55,7 +55,7 @@ public class Worker : BackgroundService
                 }
                 else if (item.FieldSelect != null)
                 {
-                    ComboBoxField combo = new ComboBoxField(page, new Rectangle(xPos, yPos, xPos + 150, yPos + 30));
+                    ComboBoxField combo = new ComboBoxField(page, new Rectangle(xPos, yPos, xPos + 150, yPos - 20));
                     combo.Value = item.Label;
                     combo.DefaultAppearance = new DefaultAppearance("Arial", 14, Color.Black);
                     if (item.Options != null)
@@ -72,7 +72,7 @@ public class Worker : BackgroundService
                 }
                 else if (item.FieldText != null)
                 {
-                    TextBoxField textBoxField = new TextBoxField(page, new Aspose.Pdf.Rectangle(xPos, yPos, xPos + 150, yPos + 30));
+                    TextBoxField textBoxField = new TextBoxField(page, new Aspose.Pdf.Rectangle(xPos, yPos, xPos + 150, yPos - 20));
                     textBoxField.PartialName = "textbox" + yPos;
                     textBoxField.Value = item.Label;
                     textBoxField.DefaultAppearance = new DefaultAppearance("Arial", 14, Color.Black);
@@ -87,14 +87,15 @@ public class Worker : BackgroundService
                     {
                         foreach (var el in item.Options)
                         {
-                            radio.AddOption(el, new Rectangle(xPos, yPos, xPos + 150, yPos -= 30));
-                            /*
-                            RadioButtonOptionField opt = new RadioButtonOptionField();
-                            opt.OptionName = el;
-                            opt.Width = 100;
-                            opt.Height = 30;
-                            opt.Caption = new TextFragment(el);
-                            radio.Add(opt);*/
+                            radio.AddOption(el, new Rectangle(xPos, yPos, xPos + 20, yPos - 20));
+                            var textf = new TextFragment(el);
+                            textf.TextState.Font = FontRepository.FindFont("Arial");
+                            textf.TextState.FontSize = 10;
+                            textf.TextState.LineSpacing = 6.32f;
+                            textf.Position = new Position(xPos + 25, yPos - 10);
+                            page.Paragraphs.Add(textf);
+                            yPos -= 20;
+                            
                         }
                         xPos += 150;
                     }
@@ -107,3 +108,4 @@ public class Worker : BackgroundService
         }
     }
 }
+
