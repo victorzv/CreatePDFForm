@@ -4,8 +4,8 @@ namespace WorkerService1;
 
 public class FormItem
 {
-    [YamlMember(Alias = "newline")]
-    public string newline { get; set; }
+    [YamlMember(Alias = "break")]
+    public string Break { get; set; }
 
     [YamlMember(Alias = "text")]
     public string Text { get; set; }
@@ -16,9 +16,9 @@ public class FormItem
     [YamlMember(Alias = "select")]
     public string FieldSelect { get; set; }
 
-    public string Label { get; set; }
+    public string label { get; set; }
     
-    public List<string> Options { get; set; }
+    public List<string> options { get; set; }
     
     [YamlMember(Alias = "radio")]
     public string FieldRadio { get; set; }   

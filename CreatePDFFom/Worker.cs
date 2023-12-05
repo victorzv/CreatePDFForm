@@ -38,7 +38,7 @@ public class Worker : BackgroundService
             double xPos = 50;
             foreach (var item in form.Items)
             {
-                if (item.newline != null)
+                if (item.Break != null)
                 {
                     yPos -= 50;
                     xPos = 50;
@@ -56,11 +56,11 @@ public class Worker : BackgroundService
                 else if (item.FieldSelect != null)
                 {
                     ComboBoxField combo = new ComboBoxField(page, new Rectangle(xPos, yPos, xPos + 150, yPos - 20));
-                    combo.Value = item.Label;
+                    combo.Value = item.label;
                     combo.DefaultAppearance = new DefaultAppearance("Arial", 14, Color.Black);
-                    if (item.Options != null)
+                    if (item.options != null)
                     {
-                        foreach (var el in item.Options)
+                        foreach (var el in item.options)
                         {
                             combo.AddOption(el);    
                         }
@@ -74,7 +74,7 @@ public class Worker : BackgroundService
                 {
                     TextBoxField textBoxField = new TextBoxField(page, new Aspose.Pdf.Rectangle(xPos, yPos, xPos + 150, yPos - 20));
                     textBoxField.PartialName = "textbox" + yPos;
-                    textBoxField.Value = item.Label;
+                    textBoxField.Value = item.label;
                     textBoxField.DefaultAppearance = new DefaultAppearance("Arial", 14, Color.Black);
                     pdf.Form.Add(textBoxField);
                     xPos += 150;
@@ -83,9 +83,9 @@ public class Worker : BackgroundService
                 {
                     RadioButtonField radio = new RadioButtonField(page);
                     pdf.Form.Add(radio, 1);
-                    if (item.Options != null)
+                    if (item.options != null)
                     {
-                        foreach (var el in item.Options)
+                        foreach (var el in item.options)
                         {
                             radio.AddOption(el, new Rectangle(xPos, yPos, xPos + 20, yPos - 20));
                             var textf = new TextFragment(el);

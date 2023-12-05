@@ -1,18 +1,18 @@
 Items:
   - text: This is text
   - input: fio
-    Label: Введите ФИО
+    label: Введите ФИО
   - select: year
-    Label: Год рождения
-    Options:
+    label: Год рождения
+    options:
       - 2001
       - 2002
-  - newline: return
+  - break: line
   - radio: gender
-    Options:
+    options:
       - male
       - female
-  - newline: return
-  - checkbox: do you agree?
-  - newline: return
-  - text: Thanks for form
+  - break: line
+  - checkbox: Are you agree?
+  - break: line
+  - text: Thanks for submit
