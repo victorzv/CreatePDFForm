@@ -13,6 +13,6 @@ Items:
       - male
       - female
   - break: line
-  - checkbox: Are you agree?
+  - checkbox: Are you agree
   - break: line
   - text: Thanks for submit
