@@ -100,6 +100,25 @@ public class Worker : BackgroundService
                         xPos += 150;
                     }
                 }
+                else if (item.FieldCheckbox != null)
+                {
+                    Console.WriteLine(item.FieldCheckbox);
+                    var checkBox = new CheckboxField(page, new Rectangle(xPos, yPos, xPos + 30, yPos - 30));
+                    checkBox.ExportValue = item.FieldCheckbox;
+                    checkBox.Style = BoxStyle.Square;
+                    checkBox.Color = Aspose.Pdf.Color.Black;
+                    checkBox.Checked = true;
+                    pdf.Form.Add(checkBox);
+                    xPos += 35;
+                    var textf = new TextFragment(item.FieldCheckbox);
+                    textf.TextState.Font = FontRepository.FindFont("Arial");
+                    textf.TextState.FontSize = 10;
+                    textf.TextState.LineSpacing = 6.32f;
+                    textf.Position = new Position(xPos, yPos - 10);
+                    page.Paragraphs.Add(textf);
+                    
+                    xPos += 100;
+                }
             }
             
             pdf.Save("Letter.pdf");
