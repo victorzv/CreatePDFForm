@@ -1,9 +1,9 @@
 Items:
   - text: This is text
   - input: fio
-    label: Введите ФИО
+    label: Enter name and surname
   - select: year
-    label: Год рождения
+    label: Birth
     options:
       - 2001
       - 2002
