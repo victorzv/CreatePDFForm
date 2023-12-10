@@ -1,10 +1,11 @@
-
-using System.Net.Mime;
 using Aspose.Pdf;
 using Aspose.Pdf.Annotations;
 using Aspose.Pdf.Forms;
 using Aspose.Pdf.Text;
-using WorkerService1;
+using CreatePDFFom.Service;
+using CreatePDFFom.Service.Interface;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Color = System.Drawing.Color;
 
 namespace CreatePDFFom;
@@ -30,7 +31,7 @@ public class Worker : BackgroundService
             IFormFieldReader reader = new YamlFormFieldReader(yamlContent);
             var form = reader.ReadFormFields();
 
-            Document pdf = new Aspose.Pdf.Document();
+            Document pdf = new Document();
 
             Page page = pdf.Pages.Add();
 

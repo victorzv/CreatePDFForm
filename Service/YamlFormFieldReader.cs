@@ -1,9 +1,8 @@
-using System.Text.RegularExpressions;
-using CreatePDFFom;
+using CreatePDFFom.Model;
+using CreatePDFFom.Service.Interface;
 using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
 
-namespace WorkerService1;
+namespace CreatePDFFom.Service;
 
 public class YamlFormFieldReader : IFormFieldReader
 {
@@ -16,13 +15,9 @@ public class YamlFormFieldReader : IFormFieldReader
 
     public Form ReadFormFields()
     {
-        var listOfBlock = new List<FormItem>();
-        
         var deserializer = new DeserializerBuilder().Build();
-        
         var form = deserializer.Deserialize<Form>(yamlContent);
-        
         return form;
     }
-    
+
 }

@@ -1,6 +1,6 @@
 using YamlDotNet.Serialization;
 
-namespace WorkerService1;
+namespace CreatePDFFom.Model;
 
 public class FormItem
 {
@@ -17,28 +17,21 @@ public class FormItem
     public string FieldSelect { get; set; }
 
     public string label { get; set; }
-    
+
     public List<string> options { get; set; }
-    
+
     [YamlMember(Alias = "radio")]
-    public string FieldRadio { get; set; }   
-    
+    public string FieldRadio { get; set; }
+
     [YamlMember(Alias = "checkbox")]
     public string FieldCheckbox { get; set; }
-    
+
     [YamlMember(Alias = "button")]
     public string FieldButton { get; set; }
-    
-    [YamlMember(Alias = "signature")]
-    public string FieldSignature { get; set; }  
-    
-    [YamlMember(Alias = "listbox")]
-    public string FieldListBox { get; set; } 
-    
-    
-}
 
-public class Form
-{
-    public List<FormItem> Items { get; set; }
+    [YamlMember(Alias = "signature")]
+    public string FieldSignature { get; set; }
+
+    [YamlMember(Alias = "listbox")]
+    public string FieldListBox { get; set; }
 }
