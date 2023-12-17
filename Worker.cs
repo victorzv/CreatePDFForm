@@ -103,7 +103,7 @@ public class Worker : BackgroundService
                 }
                 else if (item.FieldCheckbox != null)
                 {
-                    Console.WriteLine(item.FieldCheckbox);
+                    //Console.WriteLine(item.FieldCheckbox);
                     var checkBox = new CheckboxField(page, new Rectangle(xPos, yPos, xPos + 30, yPos - 30));
                     checkBox.ExportValue = item.FieldCheckbox;
                     checkBox.Style = BoxStyle.Square;
@@ -123,6 +123,8 @@ public class Worker : BackgroundService
             }
             
             pdf.Save("Letter.pdf");
+            
+            Console.WriteLine("DONE");
 
             break;
         }

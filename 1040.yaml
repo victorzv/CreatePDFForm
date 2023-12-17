@@ -13,26 +13,33 @@
   - text: Income
   - input: Wages, salaries, tips, etc.
     label: Income (Wages, salaries, tips, etc.)
+  - break: line
   - input: Taxable interest
     label: Taxable Interest
+  - break: line
   - input: Ordinary dividends
     label: Ordinary Dividends
+  - break: line
   - input: Business income or loss
     label: Business Income or Loss
   - break: line
   - text: Deductions
   - input: Educator expenses
     label: Educator Expenses
+  - break: line
   - input: Student loan interest deduction
     label: Student Loan Interest Deduction
+  - break: line
   - input: IRA deduction
     label: IRA Deduction
   - break: line
   - text: Tax and Credits
   - input: Federal income tax withheld
     label: Federal Income Tax Withheld
+  - break: line
   - input: Earned Income Credit (EIC)
     label: Earned Income Credit (EIC)
+  - break: line
   - input: Child tax credit
     label: Child Tax Credit
   - break: line
