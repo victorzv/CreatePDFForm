@@ -1,0 +1,66 @@
+﻿Items:
+  - text: 1040 U.S. Individual Income Tax Return
+  - break: line
+  - text: Filing Status
+  - select: filing_status
+    label: Filing Status
+    options:
+      - Single
+      - Married filing jointly
+      - Married filing separately
+      - Head of household
+  - break: line
+  - text: Income
+  - input: Wages, salaries, tips, etc.
+    label: Income (Wages, salaries, tips, etc.)
+  - input: Taxable interest
+    label: Taxable Interest
+  - input: Ordinary dividends
+    label: Ordinary Dividends
+  - input: Business income or loss
+    label: Business Income or Loss
+  - break: line
+  - text: Deductions
+  - input: Educator expenses
+    label: Educator Expenses
+  - input: Student loan interest deduction
+    label: Student Loan Interest Deduction
+  - input: IRA deduction
+    label: IRA Deduction
+  - break: line
+  - text: Tax and Credits
+  - input: Federal income tax withheld
+    label: Federal Income Tax Withheld
+  - input: Earned Income Credit (EIC)
+    label: Earned Income Credit (EIC)
+  - input: Child tax credit
+    label: Child Tax Credit
+  - break: line
+  - text: Payments
+  - input: Amount paid with extension
+    label: Amount Paid with Extension
+  - break: line
+  - text: Refund
+  - input: Refund amount
+    label: Refund Amount
+  - break: line
+  - text: Bank Account Information for Direct Deposit
+  - input: Bank Name
+    label: Bank Name
+  - input: Routing Number
+    label: Routing Number
+  - input: Account Number
+    label: Account Number
+  - break: line
+  - text: Declaration
+  - checkbox: I have read and agree to the declaration
+  - break: line
+  - text: Signature
+  - input: Signature
+    label: Signature
+  - break: line
+  - text: Date
+  - input: Date
+    label: Date
+  - break: line
+  - text: Thank you for filing your 1040!

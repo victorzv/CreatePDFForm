@@ -1,0 +1,84 @@
+﻿Items:
+  - text: I-9 Form - Employment Eligibility Verification
+  - break: line
+  - text: Section 1. Employee Information and Attestation
+  - break: line
+  - input: Last name
+    label: Last Name
+  - break: line
+  - input: First name
+    label: First Name
+  - break: line
+  - input: Middle Initial
+    label: Middle Initial
+  - break: line
+  - text: Other Names Used (if any)
+  - input: Other Names
+    label: Other Names
+  - break: line
+  - input: Date of Birth
+    label: Date of Birth
+  - break: line
+  - input: Social Security Number
+    label: Social Security Number
+  - break: line
+  - text: Address
+  - input: Street Address
+    label: Street Address
+  - break: line
+  - input: City
+    label: City
+  - input: State
+    label: State
+  - input: ZIP Code
+    label: ZIP Code
+  - break: line
+  - text: Attestation
+  - radio: citizenship_status
+    options:
+      - U.S. Citizen
+      - Permanent Resident
+      - Alien Authorized to Work
+  - break: line
+  - text: Date of Hire
+  - input: Date of Hire
+    label: Date of Hire
+  - break: line
+  - text: Employee's Signature
+  - input: Employee's Signature
+    label: Employee's Signature
+  - break: line
+  - text: Date
+  - input: Date
+    label: Date
+  - break: line
+  - text: Section 2. Employer or Authorized Representative Review and Verification
+  - break: line
+  - text: Employer's Business Name
+  - input: Business Name
+    label: Business Name
+  - break: line
+  - text: Employer's Business Address
+  - input: Business Street Address
+    label: Street Address
+  - break: line
+  - input: Business City
+    label: City
+  - input: Business State
+    label: State
+  - input: Business ZIP Code
+    label: ZIP Code
+  - break: line
+  - text: Date of Employment Verification
+  - input: Date of Verification
+    label: Date of Verification
+  - break: line
+  - text: Employer's or Authorized Representative's Signature
+  - input: Employer's Signature
+    label: Signature
+  - break: line
+  - text: Date
+  - input: Date
+    label: Date
+  - break: line
+  - text: Thank you for completing the I-9 Form!

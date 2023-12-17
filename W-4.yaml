@@ -1,0 +1,38 @@
+﻿Items:
+  - text: W-4 Form - Employee's Withholding Certificate
+  - break: line
+  - input: First name
+    label: First Name
+  - break: line
+  - input: Last name
+    label: Last Name
+  - break: line
+  - input: Social Security Number
+    label: SSN
+  - break: line
+  - text: Filing Status
+  - select: filing_status
+    label: Filing Status
+    options:
+      - Single
+      - Married filing jointly
+      - Married filing separately
+      - Head of household
+  - break: line
+  - text: Additional Withholding
+  - input: additional_withholding
+    label: Additional Withholding (if any)
+  - break: line
+  - text: Deductions and Adjustments
+  - checkbox: I have a child tax credit
+  - checkbox: I have other dependents
+  - break: line
+  - text: Signature
+  - input: Signature
+    label: Employee's Signature
+  - break: line
+  - text: Date
+  - input: Date
+    label: Date
+  - break: line
+  - text: Thank you for submitting your W-4 Form!
