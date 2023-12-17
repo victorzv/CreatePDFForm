@@ -25,7 +25,7 @@ public class Worker : BackgroundService
         {
             _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
             
-            new License().SetLicense("/home/tigra/test.lic");
+            new License().SetLicense("./test.lic");
             
             string yamlContent = File.ReadAllText("./form_description.yaml");
             IFormFieldReader reader = new YamlFormFieldReader(yamlContent);

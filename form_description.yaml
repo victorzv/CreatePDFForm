@@ -1,7 +1,13 @@
 Items:
-  - text: This is text
-  - input: fio
-    label: Enter name and surname
+  - text: Membership form
+  - break: line
+  - input: First name 
+    label: Name
+  - break: line
+  - input: Surname
+    label: Surname
+  - break: line
+  - text: Only these year allowed for membership
   - select: year
     label: Birth
     options:
@@ -13,6 +19,6 @@ Items:
       - male
       - female
   - break: line
-  - checkbox: Are you agree
+  - checkbox: I am agree to rules
   - break: line
-  - text: Thanks for submit
+  - text: Thank you for submit
